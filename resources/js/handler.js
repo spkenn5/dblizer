@@ -7,7 +7,7 @@ var collectData = (request, callback) => {
     var data = '';
     request.on('data', (chunk) => {
         data += chunk;
-    };
+    });
     request.on('end', () => {
         callback(data);
     });
