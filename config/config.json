@@ -3,22 +3,21 @@
     "config_id": "development",
     "app_name": "my app",
     "app_desc": "my app desc",
-    "node_port": 3000,
+    "node_port": 8000,
     "json_indentation": 4,
-    "database": "my-app-db-dev"
-  },
-  "testing": {
-    "config_id": "testing",
-    "database": "my-app-db-test"
-  },
-  "staging": {
-    "config_id": "staging",
-    "node_port": 8080,
-    "database": "my-app-db-stag"
+    "db_name": "cb_test_db",
+    "db_host": "localhost",
+    "db_user": "ccrm-cb",
+    "db_password": "password1",
+    "db_port": 3306
   },
   "production": {
     "config_id": "production",
     "node_port": 8080,
-    "database": "my-app-db-prod"
+    "db_name": "cb_test_db",
+    "db_host": "localhost",
+    "db_user": "ccrm-cb",
+    "db_password": "password1",
+    "db_port": 3306
   }
 }
