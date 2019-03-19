@@ -1,4 +1,50 @@
 const url = require('url');
+const fs = require('fs');
+
+exports.renderPage = function (req, res) {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    fs.readFile('./resources/html/index.html', null, function (error, data) {
+        if (error) {
+            console.log('DEBUG error', error);
+            res.writeHead(404);
+            res.write('Whoops! File not found!');
+        } else {
+            res.write(data);
+        }
+        res.end();
+    });
+}
+
+exports.getCss = function (path, req, res) {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/css');
+    fs.readFile('.' + path, null, function (error, data) {
+        if (error) {
+            console.log('DEBUG error', error);
+            res.writeHead(404);
+            res.write('Whoops! File not found!');
+        } else {
+            res.write(data);
+        }
+        res.end();
+    });
+}
+
+exports.getJs = function (path, req, res) {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/script');
+    fs.readFile('.' + path, null, function (error, data) {
+        if (error) {
+            console.log('DEBUG error', error);
+            res.writeHead(404);
+            res.write('Whoops! File not found!');
+        } else {
+            res.write(data);
+        }
+        res.end();
+    });
+}
 
 exports.sampleRequest = function (req, res) {
     const reqUrl = url.parse(req.url, true);

@@ -7,7 +7,16 @@ module.exports = http.createServer((req, res) => {
     const reqUrl = url.parse(req.url, true);
 
     // GET Endpoint
-    if (reqUrl.pathname == '/sample' && req.method === 'GET') {
+    if (reqUrl.pathname == '/' && req.method === 'GET') {
+        console.log('Request Type:' +
+            req.method + ' Endpoint: ' +
+            reqUrl.pathname);
+        service.renderPage(req, res);
+    } else if (reqUrl.pathname == '/resources/css/app.css' && req.method === 'GET') { 
+        service.getCss(reqUrl.pathname, req, res);
+    } else if (reqUrl.pathname == '/resources/js/main.js' && req.method === 'GET') { 
+        service.getJs(reqUrl.pathname, req, res);
+    }else if (reqUrl.pathname == '/sample' && req.method === 'GET') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
             reqUrl.pathname);

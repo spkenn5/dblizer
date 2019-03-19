@@ -3,6 +3,10 @@ body {padding: 30px;}
 
 #highlight {display: none;}
 
+h1 {
+    color: blue;
+}
+
 /*styles for the pre tag*/
 #layer {
     font-family: monospace;
