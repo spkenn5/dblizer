@@ -1,2 +1,4 @@
 # DBLizer
-reading query string to db
+
+#Installation
+`npm install`
