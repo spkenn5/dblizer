@@ -1,23 +1,25 @@
 {
   "development": {
+    "hostname": "127.0.0.1",
     "config_id": "development",
     "app_name": "my app",
     "app_desc": "my app desc",
     "node_port": 8000,
     "json_indentation": 4,
-    "db_name": "cb_test_db",
+    "db_name": "dblizer",
     "db_host": "localhost",
-    "db_user": "ccrm-cb",
-    "db_password": "password1",
+    "db_user": "root",
+    "db_password": "maingames",
     "db_port": 3306
   },
   "production": {
+    "hostname": "127.0.0.1",
     "config_id": "production",
     "node_port": 8080,
-    "db_name": "cb_test_db",
+    "db_name": "dblizer",
     "db_host": "localhost",
-    "db_user": "ccrm-cb",
-    "db_password": "password1",
+    "db_user": "root",
+    "db_password": "maingames",
     "db_port": 3306
   }
 }

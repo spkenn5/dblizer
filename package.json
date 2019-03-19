@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bin/server"
+    "start": "nodemon bin/server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^7.0.0",
     "mysql": "^2.16.0",
+    "nodemon": "^1.18.10",
     "npm": "^6.9.0"
   }
 }
