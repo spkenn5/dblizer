@@ -79,7 +79,11 @@ exports.testRequest = function (req, res) {
         if (active_user === 0) {
             global.active_user = loggedId;
         }
-        if (loggedId === active_user && active_user + threshold > timestamp) {
+        if (active_user + threshold < timestamp) {
+            global.active_user = loggedId;
+        }
+
+        if (loggedId === active_user) {
             db.query(postBody.q, (err, result) => {                        
                 if(!err){
                     response = JSON.stringify(result);
@@ -92,7 +96,6 @@ exports.testRequest = function (req, res) {
                 res.end(response);
             });   
         } else {
-            global.active_user = loggedId;
             response = JSON.stringify("Another session is active");
             res.statusCode = 400;     
             res.setHeader('Content-Type', 'application/json');
