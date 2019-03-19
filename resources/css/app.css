@@ -1,10 +1,25 @@
 * {margin: 0; padding: 0;}
-body {padding: 30px;}
+body {padding: 30px; display: flex;}
 
 #highlight {display: none;}
 
 h1 {
-    color: blue;
+    color: limegreen;
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+    width: 600px;
+    height: 100px;
+}
+
+#queryBox {
+    display: inline-grid;
+}
+
+#main {
+    margin: auto;
 }
 
 /*styles for the pre tag*/

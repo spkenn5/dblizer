@@ -4,6 +4,18 @@
         <link rel="stylesheet" href="./resources/css/app.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div id="main">
+            <form id="submitForm">
+                <h1>Hello DBLizer!</h1>
+                <div id="queryBox">
+                    <textarea id="query" placeholder="Input mysql query here..."></textarea>                
+                    <input type="submit" value="Submit">    
+                </div>
+                <div id="resultBox">
+                    <textarea id="queryResult" readonly></textarea>
+                </div>
+              </form> 
+        </div>
     </body>
+    <script src="./resources/js/main.js"></script>
 </html>

@@ -70,16 +70,13 @@ exports.testRequest = function (req, res) {
     });
 
     req.on('end', function () {
-        postBody = JSON.parse(body);   
-        console.log('DEBUG postBody', postBody.q);
+        postBody = JSON.parse(body);           
         var response = {};
-        db.query(postBody.q, (err, result) => {            
-            console.log('DEBUG postBody 2', postBody.q);
+        db.query(postBody.q, (err, result) => {                        
             if(!err){
                 response = JSON.stringify(result);
                 res.statusCode = 200;            
-            } else {
-                console.log('DEBUG error ', JSON.stringify(err));
+            } else {                
                 response = JSON.stringify(err);
                 res.statusCode = 500;                
             }
