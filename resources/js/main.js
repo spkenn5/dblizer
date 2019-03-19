@@ -2,9 +2,11 @@ function processForm(e) {
     if (e.preventDefault) e.preventDefault();
 
     var query = document.getElementById("query").value;
-    
+    var retrievedObject = localStorage.getItem('uniqueId');
+
     body = {
-        q: query
+        q: query,
+        by: retrievedObject
     };
 
     const Http = new XMLHttpRequest();
@@ -15,10 +17,21 @@ function processForm(e) {
         if(Http.readyState == 4 && Http.status == 200) {
             var queryResult = document.getElementById("queryResult");
             queryResult.value = Http.responseText;
+        } else if (Http.readyState == 4 && Http.status == 400) {
+            alert("Another user session is still active");
         }
     }
     Http.send(JSON.stringify(body));
     return false;
+}
+
+window.onload = function generateUid() {
+    var date = new Date();
+    var timestamp = date.getTime();
+    var retrievedObject = localStorage.getItem('uniqueId');
+    if (!retrievedObject) {
+        localStorage.setItem('uniqueId', timestamp);   
+    }
 }
 
 var form = document.getElementById('submitForm');
@@ -27,3 +40,4 @@ if (form.attachEvent) {
 } else {
     form.addEventListener("submit", processForm);
 }
+

@@ -64,7 +64,9 @@ exports.sampleRequest = function (req, res) {
 
 exports.testRequest = function (req, res) {
     body = '';
-    
+    var date = new Date();
+    var timestamp = date.getTime();
+
     req.on('data', function (chunk) {
         body = chunk.toString();
     });
@@ -72,17 +74,30 @@ exports.testRequest = function (req, res) {
     req.on('end', function () {
         postBody = JSON.parse(body);           
         var response = {};
-        db.query(postBody.q, (err, result) => {                        
-            if(!err){
-                response = JSON.stringify(result);
-                res.statusCode = 200;            
-            } else {                
-                response = JSON.stringify(err);
-                res.statusCode = 500;                
-            }
+
+        var loggedId = postBody.by;
+        if (active_user === 0) {
+            global.active_user = loggedId;
+        }
+        if (loggedId === active_user && active_user + threshold > timestamp) {
+            db.query(postBody.q, (err, result) => {                        
+                if(!err){
+                    response = JSON.stringify(result);
+                    res.statusCode = 200;            
+                } else {                
+                    response = JSON.stringify(err);
+                    res.statusCode = 500;                
+                }
+                res.setHeader('Content-Type', 'application/json');
+                res.end(response);
+            });   
+        } else {
+            global.active_user = loggedId;
+            response = JSON.stringify("Another session is active");
+            res.statusCode = 400;     
             res.setHeader('Content-Type', 'application/json');
             res.end(response);
-        });
+        }
     });
 };
 

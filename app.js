@@ -26,6 +26,8 @@ class app {
 
         global.db = db;
         global.app_config = finalConfig;
+        global.active_user = 0;
+        global.threshold = ((finalConfig.user_tle_minutes * 60) * 1000);
 
         server.listen(finalConfig.node_port, finalConfig.hostname, () => {
             console.log(`Server running at http://${finalConfig.hostname}:${finalConfig.node_port}/`);
