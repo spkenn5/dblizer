@@ -20,9 +20,6 @@ DBLizer uses a number of open source projects to work properly:
 * [node.js] - evented I/O for the backend
 * HTML/CSS/JavaScript - front-end view and event handling
 
-And of course DBLizer itself is open source with a [public repository][dblizer]
- on GitHub.
-
 ### Installation
 
 DBLizer requires [Node.js](https://nodejs.org/) v7+ to run.
