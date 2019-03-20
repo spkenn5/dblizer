@@ -63,7 +63,7 @@ exports.sampleRequest = function (req, res) {
 };
 
 exports.testRequest = function (req, res) {
-    body = '';
+    var body = '';
     var date = new Date();
     var timestamp = date.getTime();
 
@@ -72,7 +72,7 @@ exports.testRequest = function (req, res) {
     });
 
     req.on('end', function () {
-        postBody = JSON.parse(body);           
+        var postBody = JSON.parse(body);
         var response = {};
 
         var loggedId = postBody.by;

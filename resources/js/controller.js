@@ -7,7 +7,6 @@ module.exports = http.createServer((req, res) => {
     const reqUrl = url.parse(req.url, true);
 
     if (reqUrl.pathname == '/' && req.method === 'GET') {
-        console.log('DEBUG -> ', threshold);
         console.log('Request Type:' + req.method + ' Endpoint: ' + reqUrl.pathname);
         service.renderPage(req, res);
     } else if (reqUrl.pathname == '/resources/css/app.css' && req.method === 'GET') { 

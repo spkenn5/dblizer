@@ -6,7 +6,6 @@ class app {
     }
 
     loadServer() {
-        const fs = require('fs');
         const _ = require('lodash');
         const server = require('./resources/js/controller');
         const mysql = require('mysql');

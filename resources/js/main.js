@@ -4,13 +4,14 @@ function processForm(e) {
     var query = document.getElementById("query").value;
     var retrievedObject = localStorage.getItem('uniqueId');
 
-    body = {
+    var body = {
         q: query,
         by: retrievedObject
     };
 
+
     const Http = new XMLHttpRequest();
-    const url='http://localhost:8000/submit';    
+    const url = '/submit';
     Http.open("POST", url, true);
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     Http.onreadystatechange = function() {
