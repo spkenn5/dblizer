@@ -12,13 +12,9 @@ function processForm(e) {
 
     const Http = new XMLHttpRequest();
     const url = '/submit';
-    console.log('DEBUG go go 1');
     Http.open("POST", url, true);
-    console.log('DEBUG go go 2');
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    console.log('DEBUG go go 3');
     Http.onreadystatechange = function() {
-        console.log('DEBUG go go 4');
         if (Http.readyState === 4 && Http.status === 200) {
             let queryResult = document.getElementById("queryResult");
             queryResult.value = Http.responseText;
