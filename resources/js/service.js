@@ -1,7 +1,7 @@
 const url = require('url');
 const fs = require('fs');
 
-exports.renderPage = function (req, res) {
+exports.renderHome = function (req, res) {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
     fs.readFile('./resources/html/index.html', null, function (error, data) {
@@ -14,7 +14,7 @@ exports.renderPage = function (req, res) {
         }
         res.end();
     });
-}
+};
 
 exports.getCss = function (path, req, res) {
     res.statusCode = 200;
@@ -29,7 +29,7 @@ exports.getCss = function (path, req, res) {
         }
         res.end();
     });
-}
+};
 
 exports.getJs = function (path, req, res) {
     res.statusCode = 200;
@@ -44,38 +44,22 @@ exports.getJs = function (path, req, res) {
         }
         res.end();
     });
-}
-
-exports.sampleRequest = function (req, res) {
-    const reqUrl = url.parse(req.url, true);
-    var name = 'World';
-    if (reqUrl.query.name) {
-        name = reqUrl.query.name
-    }
-
-    var response = {
-        "text": "Hello " + name
-    };
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(response));
 };
 
-exports.testRequest = function (req, res) {
-    var body = '';
-    var date = new Date();
-    var timestamp = date.getTime();
+exports.submitQuery = function (req, res) {
+    let body = '';
+    let date = new Date();
+    let timestamp = date.getTime();
 
     req.on('data', function (chunk) {
         body = chunk.toString();
     });
 
     req.on('end', function () {
-        var postBody = JSON.parse(body);
-        var response = {};
+        let postBody = JSON.parse(body);
+        let response = {};
 
-        var loggedId = postBody.by;
+        let loggedId = postBody.by;
         if (active_user === 0) {
             global.active_user = loggedId;
         }
