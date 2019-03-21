@@ -10,7 +10,7 @@
     "db_name": "dblizer",
     "db_host": "localhost",
     "db_user": "root",
-    "db_password": "maingames",
+    "db_password": "",
     "db_port": 3306
   },
   "production": {
@@ -20,8 +20,8 @@
     "node_port": 8080,
     "db_name": "dblizer",
     "db_host": "localhost",
-    "db_user": "ccrm-cb",
-    "db_password": "password1",
+    "db_user": "prod-user",
+    "db_password": "",
     "db_port": 3306
   }
 }
