@@ -1,6 +1,6 @@
 # DBLizer
 
-Dillinger is a Web based MySQL Client.
+DBLizer is a Web based MySQL Client.
 
   - Setting configuration
   - Install dependencies
